@@ -1,11 +1,12 @@
+import {ProfilePage, SignInPage} from '../pages'
 describe('Profile', () => {
   beforeEach(() => {
-    cy.loginByToken()
-    cy.visit(`/profile/${Cypress.env('userId')}`)
+    SignInPage.open()
+    SignInPage.signIn(Cypress.env('email'), Cypress.env('password'))
   })
   it('Sign out', () => {
-    cy.get('a > .ms-2').click()
-    cy.get('[data-qa="logout"]').click()
+    ProfilePage.navbar.dropdownUserName.click()
+    ProfilePage.navbar.buttonLogOut.click()
     cy.location('pathname').should('eq', '/')
   })
 })
