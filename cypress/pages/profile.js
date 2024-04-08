@@ -8,7 +8,11 @@ export const ProfilePage = new class extends BasePage {
   }
 
   open() {
-    return cy.visit(`/profile/${Cypress.env('userId')}`)
+    return cy.visit(`/profile/658de49f5e00ded482a1d2d6`)
+  }
+
+  openProgress() {
+    return cy.visit(`/profile/658de49f5e00ded482a1d2d6/progress`)
   }
 }
 
